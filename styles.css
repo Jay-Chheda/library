@@ -1,48 +1,70 @@
-*,::after,::before{
+*,*::after,*::before{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+:root{
+    --header-background:#f875aa;
+    --header-color:#f4f9f9;
 
-#form-open{
-    margin: 100px 400px;
 }
 
-.modal{
-    display: none;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    background-color: rgba(0, 0, 0, 0.5);
-    transition: width 0.4s ease-in;
+button{
+    background:none;
     
 }
-.modal-content{
-    width: 30%;
-    background-color: antiquewhite;
-    margin: 100px auto;
-    padding: 10px;
-    
+h1{
+    font-size: 5vh;
+    font-weight: 900;
 }
-.modal-content h1{
-    
+#header{
+    text-align: center;
+    padding: 1em;
+    background-color: var(--header-background);
+    color: var(--header-color);
+}
+#main{
     position: relative;
+    min-height: 85vh;
 }
-#book-form{
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+.add-form-btn{
+   
+    border: none;
+    outline: none;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 30px;
+    color: var(--header-background);
+    transition: all 200ms ease-in;
+
+
+
+}
+
+.add-form-btn:hover{
+    transform: scale(1.5) rotate(45deg);
+
+}
+.bk-form{
+    background-color: var(--header-color);
+    border-radius: 10px;
     
-
+}
+.m-header{
+    background-color: var(--header-background);
+    color: var(--header-color);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    
+}
+.frm-add{
+    background-color: var(--header-background);
+    color: var(--header-color);
+}
+.frm-close{
+    background-color: #989fa7 ;
+    color: var(--header-color);
 }
 
-.block-input{
-    display: block;
-    width: 98%;
-    margin: 10px;
 
-}
