@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 :root{
-    --header-background:#f875aa;
+    --header-background:#fbaccc;
     --header-color:#f4f9f9;
 
 }
@@ -37,34 +37,44 @@ h1{
     margin: 30px;
     color: var(--header-background);
     transition: all 200ms ease-in;
-
-
-
 }
 
 .add-form-btn:hover{
     transform: scale(1.5) rotate(45deg);
+    color: #f875aa;
 
 }
-.bk-form{
-    background-color: var(--header-color);
-    border-radius: 10px;
-    
+
+.frm-header{
+    background-color: #fbaccc;
+    color: #030303b0;
 }
-.m-header{
-    background-color: var(--header-background);
-    color: var(--header-color);
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    
-}
-.frm-add{
-    background-color: var(--header-background);
-    color: var(--header-color);
-}
-.frm-close{
-    background-color: #989fa7 ;
-    color: var(--header-color);
+.m-con{
+    border-radius: 20px;
+    padding: 1.5em;
 }
 
+.frm-submit{
+    background-color: #fbaccc;
+    border-color: #fbaccc;
+    color: #030303;
+    width: 100%;
+}
 
+.frm-submit:hover{
+    background-color: #f875aa;
+    border-color: #f875aa;
+    color: var(--header-color);
+    transform: scale(1.03);
+    transition: all 200ms;
+}
+
+.status-checkbox:checked{
+    background-color: #fbaccc;
+    border-color: #f875aa;
+}
+
+.status-checkbox:focus{
+    box-shadow:0 0 0 0.25rem #fbaccb79;
+    border-color: #fbaccc;
+}

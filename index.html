@@ -16,12 +16,48 @@
     
     <div id="main">
 
-        <button type="button" class="add-form-btn" data-bs-toggle="modal" data-bs-target="#new-book-form" id="form-btn">
+        <button type="button" class="add-form-btn" data-bs-toggle="modal" data-bs-target="#new-book-modal" id="form-btn">
             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
             <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
-          </svg></button>
-
-         
+          </svg>
+        </button>
+        <!-- modal starts here -->
+        <div class="modal fade" tabindex="-1" id="new-book-modal">
+            <div class="modal-dialog m-con">
+                <div class="modal-content">
+                  <div class="frm-header modal-header">
+                    <h5 class="modal-title" id="form-heading">Add new book</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                          <label for="book-name" class="form-label">Book name</label>
+                          <input required type="text" class="form-control status-checkbox" id="book-name" name="book-name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="book-author" class="form-label">Author name</label>
+                            <input required type="text" class="form-control status-checkbox" id="book-author" name="book-author">
+                        </div>
+                        <div class="mb-3">
+                            <label for="book-pages" class="form-label">Pages</label>
+                            <input min="1" required type="number" class="form-control status-checkbox" id="book-pages" name="book-pages">
+                        </div>
+                        
+                        <div class="mb-3 form-check">
+                            <label class="form-check-label" for="book-status">Already read?
+                          <input type="checkbox" name="book-status" class="form-check-input status-checkbox" id="book-status">
+                        </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary frm-submit">Add</button>
+                      </form>
+                  </div>
+                  
+                </div>
+              </div>
+             </div>
+             
+             <!-- modal ends here -->
     </div>
     
     
