@@ -27,10 +27,10 @@
                 <div class="modal-content">
                   <div class="frm-header modal-header">
                     <h5 class="modal-title" id="form-heading">Add new book</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button id="modal-close" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    <form>
+                    <form id="add-bk-form">
                         <div class="mb-3">
                           <label for="book-name" class="form-label">Book name</label>
                           <input required type="text" class="form-control status-checkbox" id="book-name" name="book-name">
@@ -46,10 +46,10 @@
                         
                         <div class="mb-3 form-check">
                             <label class="form-check-label" for="book-status">Already read?
-                          <input type="checkbox" name="book-status" class="form-check-input status-checkbox" id="book-status">
+                          <input type="checkbox" value="oopps" name="book-status" class="form-check-input status-checkbox" id="book-status">
                         </label>
                         </div>
-                        <button type="submit" class="btn btn-primary frm-submit">Add</button>
+                        <button id="book-add-btn" type="submit" class="btn btn-primary frm-submit">Add</button>
                       </form>
                   </div>
                   
@@ -58,7 +58,77 @@
              </div>
              
              <!-- modal ends here -->
+
+
+
+      <!-- book list starts here -->
+
+      <div class="container-fluid">
+        <div class="row p-5 text-center">
+
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <div style="border: 1px solid black;" class="book-info my-2 py-3">
+              <div class="book-name">Got</div>
+              <div class="book-Author">GRRM</div>
+              <div class="book-pages">1203</div>
+              <div class="book-status">Read</div>
+            </div>
+          </div>
+          
+
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <div style="border: 1px solid black;" class="book-info my-2 py-3">
+              <div class="book-name">Got</div>
+              <div class="book-Author">GRRM</div>
+              <div class="book-pages">1203</div>
+              <div class="book-status">Read</div>
+            </div>
+          </div>
+
+
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <div style="border: 1px solid black;" class="book-info my-2 py-3">
+              <div class="book-name">Got</div>
+              <div class="book-Author">GRRM</div>
+              <div class="book-pages">1203</div>
+              <div class="book-status">Read</div>
+            </div>
+          </div>
+
+
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <div style="border: 1px solid black;" class="book-info my-2 py-3">
+              <div class="book-name">Got</div>
+              <div class="book-Author">GRRM</div>
+              <div class="book-pages">1203</div>
+              <div class="book-status">Read</div>
+            </div>
+          </div>
+          
+          
+
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      
+
+
+
+
+
+
+
+
+
     </div>
+    <!-- main div ends here ^^^ -->
     
     
     
