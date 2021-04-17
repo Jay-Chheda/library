@@ -1,5 +1,5 @@
 // an array to store the books objects
-
+let myLibrary = [];
 const newBookForm = document.getElementById("add-bk-form");
 const modalCloseBtn = document.getElementById("modal-close");
 
@@ -92,7 +92,7 @@ function addBookToDom(bookElement,bookIndex){
     colDiv.appendChild(bookInfoDiv);
     bookShelf.appendChild(colDiv);
     colDiv.addEventListener("click",handleBtnClick)
-    addToLocal();
+    
 }
 
 
@@ -103,7 +103,6 @@ function reloadDisplay(){
         
         
     });
-    addToLocal();
 }
 
 
@@ -118,21 +117,16 @@ function handleBtnClick(ev){
         let discardIndex = +(ev.target.parentNode.parentNode.getAttribute("data-index"));
         myLibrary.splice(discardIndex,1);
         reloadDisplay();
+       
     }
     else if([...(ev.target.classList)].includes("status-btn")){
         let statusIndex = +(ev.target.parentNode.parentNode.getAttribute("data-index"));
         myLibrary[statusIndex]["bookStatus"] = !myLibrary[statusIndex]["bookStatus"];
         reloadDisplay();
-
+       
     }
 
 }
 
 
-function addToLocal(){
-    localStorage.setItem("bookArray",JSON.stringify(myLibrary));
-}
 
-let myLibrary = [...JSON.parse(localStorage.getItem("bookArray"))];
-
-reloadDisplay();
