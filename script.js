@@ -1,19 +1,4 @@
 // an array to store the books objects
-let myLibrary = [
-    {
-    bookName: "game of thornes",
-    bookAuthor: "grrm",
-    bookPages: "42454",
-    bookStatus: true
-    },
-
-    {
-        bookName: "2hornes",
-        bookAuthor: "grrm",
-        bookPages: "42454",
-        bookStatus: true
-        }
-    ];
 
 const newBookForm = document.getElementById("add-bk-form");
 const modalCloseBtn = document.getElementById("modal-close");
@@ -59,21 +44,41 @@ function addBookToLibrary(name,author,pages,status){
     const book = new Book(name,author,pages,status);
     myLibrary.push(book);
     // console.log(myLibrary);
-    console.log(myLibrary[myLibrary.length-1]);
-    addBookToDom(myLibrary[myLibrary.length-1]);
+    resetDisplay();
+    reloadDisplay();
+    // addBookToDom(myLibrary[myLibrary.length-1]);
 
     }
 
 
 const bookShelf = document.getElementById("book-shelf");
-function addBookToDom(bookElement){
+function addBookToDom(bookElement,bookIndex){
     const bookName = bookElement["bookName"];
     const bookAuthor = bookElement["bookAuthor"];
     const bookPages = bookElement["bookPages"];
     const bookStatus = bookElement["bookStatus"];
+    const delBtn = document.createElement("button");
+    delBtn.classList.add("del-btn","lib-btn");
+  
+    delBtn.innerText = "Delete";
+    const statusBtn = document.createElement("button");
+    statusBtn.classList.add("status-btn","lib-btn");
+  
+    if(bookStatus){
+        statusBtn.innerText = "Already Read";
+        statusBtn.classList.add("status-btn","lib-btn");
+    }
+    else{
+        statusBtn.innerText = "Not Read";
+        statusBtn.style.background  = "#f4f9f9";
+        statusBtn.style.color = "#000000";
+    }
+        
+
 
     const colDiv = document.createElement("div");
-    colDiv.classList.add("col-lg-3", "col-md-6" ,"col-sm-12");
+    colDiv.classList.add("col-lg-3", "col-md-6" ,"col-sm-12","p-5","book-card");
+    colDiv.dataset.index = bookIndex;
     const bookInfoDiv = document.createElement("div");
     bookInfoDiv.classList.add("book-info", "my-2" ,"py-3","border-blk");
     const bookNameDiv  = document.createElement("div");
@@ -82,19 +87,52 @@ function addBookToDom(bookElement){
     bookAuthorDiv.innerText = `${bookAuthor}`;
     const bookPagesDiv  = document.createElement("div");
     bookPagesDiv.innerText = `${bookPages}`;
-    const bookStatusDiv  = document.createElement("div");
-    bookStatusDiv.innerText = `${bookStatus}`;
-    bookInfoDiv.append(bookNameDiv,bookAuthorDiv,bookPagesDiv,bookStatusDiv);
+    // const bookStatusDiv  = document.createElement("div");
+    bookInfoDiv.append(bookNameDiv,bookAuthorDiv,bookPagesDiv,delBtn,statusBtn);
     colDiv.appendChild(bookInfoDiv);
     bookShelf.appendChild(colDiv);
+    colDiv.addEventListener("click",handleBtnClick)
+    addToLocal();
 }
 
 
 function reloadDisplay(){
-    myLibrary.forEach(element => {
-        addBookToDom(element);
+    resetDisplay();
+    myLibrary.forEach((element,index) => {
+        addBookToDom(element,index);
+        
         
     });
+    addToLocal();
 }
+
+
+
+function resetDisplay(){
+    bookShelf.innerHTML = "";
+}
+
+
+function handleBtnClick(ev){
+    if([...(ev.target.classList)].includes("del-btn")){
+        let discardIndex = +(ev.target.parentNode.parentNode.getAttribute("data-index"));
+        myLibrary.splice(discardIndex,1);
+        reloadDisplay();
+    }
+    else if([...(ev.target.classList)].includes("status-btn")){
+        let statusIndex = +(ev.target.parentNode.parentNode.getAttribute("data-index"));
+        myLibrary[statusIndex]["bookStatus"] = !myLibrary[statusIndex]["bookStatus"];
+        reloadDisplay();
+
+    }
+
+}
+
+
+function addToLocal(){
+    localStorage.setItem("bookArray",JSON.stringify(myLibrary));
+}
+
+let myLibrary = [...JSON.parse(localStorage.getItem("bookArray"))];
 
 reloadDisplay();

@@ -12,6 +12,7 @@
 button{
     background:none;
     
+    
 }
 h1{
     font-size: 5vh;
@@ -81,5 +82,22 @@ h1{
 
 
 .border-blk{
-    border: 1px solid black;
+    border: 0.5px solid rgba(230, 230, 230, 0.589);
+}
+
+.lib-btn{
+    background-color: #f875aa;
+    display: inline-block;
+    width: 90%;
+    margin: 0.3em;
+    border: 0.3px solid rgba(163, 162, 162, 0.548);
+    border-radius: 4px;
+    color: #f4f9f9;
+    outline: none;
+}
+
+.lib-btn:hover{
+    color: #030303;
+    background: #f4f9f9;
+
 }
