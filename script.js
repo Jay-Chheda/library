@@ -1,5 +1,5 @@
 // an array to store the books objects
-let myLibrary = [];
+
 const newBookForm = document.getElementById("add-bk-form");
 const modalCloseBtn = document.getElementById("modal-close");
 
@@ -43,6 +43,7 @@ newBookForm.addEventListener("submit",(e)=>{
 function addBookToLibrary(name,author,pages,status){
     const book = new Book(name,author,pages,status);
     myLibrary.push(book);
+    saveToLocal();
     // console.log(myLibrary);
     resetDisplay();
     reloadDisplay();
@@ -93,11 +94,13 @@ function addBookToDom(bookElement,bookIndex){
     bookShelf.appendChild(colDiv);
     colDiv.addEventListener("click",handleBtnClick)
     
+    
 }
 
 
 function reloadDisplay(){
     resetDisplay();
+    console.log(myLibrary);
     myLibrary.forEach((element,index) => {
         addBookToDom(element,index);
         
@@ -125,8 +128,16 @@ function handleBtnClick(ev){
         reloadDisplay();
        
     }
+    saveToLocal();
 
 }
 
+function saveToLocal(){
+    localStorage.setItem("myLibrary",JSON.stringify(myLibrary));
+}
+
+let myLibrary = JSON.parse(localStorage.getItem("myLibrary"));
+if (myLibrary === null) myLibrary = [];
+reloadDisplay();
 
 
